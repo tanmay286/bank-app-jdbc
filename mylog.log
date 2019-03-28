@@ -1,0 +1,37 @@
+2019-03-27 12:24:50 - 0 - [main] ERROR com.capgemini.bankapp.client.BankAccountClient  - Withdraw : 
+com.capgemini.bankapp.exception.LowBalanceException: Insufficient Balance
+	at com.capgemini.bankapp.service.impl.BankAccountServiceImpl.withdraw(BankAccountServiceImpl.java:38)
+	at com.capgemini.bankapp.service.impl.BankAccountServiceImpl.fundTranfer(BankAccountServiceImpl.java:60)
+	at com.capgemini.bankapp.client.BankAccountClient.main(BankAccountClient.java:86)
+2019-03-28 11:47:21 - 0 - [main] ERROR com.capgemini.bankapp.util.DbUtil  - SQLException 
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Connection.close() has already been called. Invalid operation in this state.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.Util.getInstance(Util.java:381)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:985)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:957)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:927)
+	at com.mysql.jdbc.ConnectionImpl.getMutex(ConnectionImpl.java:3015)
+	at com.mysql.jdbc.ConnectionImpl.commit(ConnectionImpl.java:1521)
+	at com.capgemini.bankapp.util.DbUtil.commit(DbUtil.java:37)
+	at com.capgemini.bankapp.service.impl.BankAccountServiceImpl.addNewAccount(BankAccountServiceImpl.java:110)
+	at com.capgemini.bankapp.client.BankAccountClient.main(BankAccountClient.java:51)
+2019-03-28 11:48:03 - 42071 - [main] ERROR com.capgemini.bankapp.util.DbUtil  - SQLException 
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Connection.close() has already been called. Invalid operation in this state.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:406)
+	at com.mysql.jdbc.Util.getInstance(Util.java:381)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:985)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:957)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:927)
+	at com.mysql.jdbc.ConnectionImpl.getMutex(ConnectionImpl.java:3015)
+	at com.mysql.jdbc.ConnectionImpl.commit(ConnectionImpl.java:1521)
+	at com.capgemini.bankapp.util.DbUtil.commit(DbUtil.java:37)
+	at com.capgemini.bankapp.service.impl.BankAccountServiceImpl.withdraw(BankAccountServiceImpl.java:45)
+	at com.capgemini.bankapp.client.BankAccountClient.main(BankAccountClient.java:63)
