@@ -16,12 +16,12 @@ public class BankAccountDaoImpl implements BankAccountDao {
 	@Override
 	public double getBalance(long accountId) {
 		String query = "select account_balance from bankaccounts where account_id= " + accountId;
-		double balance = 0;
+		double balance = -1;
 		Connection connection = DbUtil.getConnection();
 		try (PreparedStatement statement = connection.prepareStatement(query);
 				ResultSet result = statement.executeQuery()) {
-			result.next();
-			balance = result.getDouble(1);
+			if(result.next())
+				balance = result.getDouble(1);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -39,7 +39,7 @@ public class BankAccountDaoImpl implements BankAccountDao {
 			statement.setDouble(2, accountId);
 
 			int result = statement.executeUpdate();
-			System.out.println("No of rows updated :" + result);
+		//	System.out.println("No of rows updated :" + result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

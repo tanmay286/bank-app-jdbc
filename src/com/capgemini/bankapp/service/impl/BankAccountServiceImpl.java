@@ -57,7 +57,7 @@ public class BankAccountServiceImpl implements BankAccountService {
 			balance = balance - amount;
 			// Updating the balance after withdrawing from account
 			bankAccountDao.updateBalance(accountId, balance);
-			DbUtil.commit();
+		//	DbUtil.commit();
 			return balance;
 		} else
 			throw new LowBalanceException("Insufficient Balance");

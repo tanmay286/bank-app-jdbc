@@ -1,7 +1,6 @@
 package com.capgemini.bankapp.exception;
 
 public class BankAccountNotFoundException extends Exception {
-
 	public BankAccountNotFoundException() {
 	}
 

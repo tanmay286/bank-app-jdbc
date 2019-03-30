@@ -11,16 +11,17 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 public class DbUtil {
-	private static String dburl;
-	private static String username;
-	private static String password;
+	private static String driverClassName = "com.mysql.jdbc.Driver";
+	private static String dburl = "jdbc:mysql://localhost:3306/bankappdb";
+	private static String username = "root";
+	private static String password = "root";
 
 	static Connection connection;
 	static final Logger logger = Logger.getLogger(DbUtil.class);
 
 	public static Connection getConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName(driverClassName);
 			if (connection == null) {
 				connection = DriverManager.getConnection(dburl, username, password);
 				connection.setAutoCommit(false);
@@ -51,20 +52,17 @@ public class DbUtil {
 		}
 	}
 
-	static {
-		try {
-			File propertiesFile = new File("dbConfig.properties");
-			FileReader reader = new FileReader(propertiesFile);
-
-			Properties properties = new Properties();
-			properties.load(reader);
-			reader.close();
-
-			dburl = properties.getProperty("dburl");
-			username = properties.getProperty("username");
-			password = properties.getProperty("password");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+	/*
+	 * static { try { File propertiesFile = new File("dbConfig.properties");
+	 * FileReader reader = new FileReader(propertiesFile);
+	 * 
+	 * Properties properties = new Properties(); properties.load(reader);
+	 * reader.close();
+	 * 
+	 * driverClassName = properties.getProperty("driverClassName"); dburl =
+	 * properties.getProperty("dburl"); username =
+	 * properties.getProperty("username"); password =
+	 * properties.getProperty("password"); } catch (IOException e) {
+	 * e.printStackTrace(); } }
+	 */
 }
